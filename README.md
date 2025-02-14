@@ -17,6 +17,18 @@ $ npm install
 $ npm run dev
 ```
 
+## Unit testing
+
+You can run unit testing by running
+
+```bash
+# while watching changes
+$ npm test
+
+# without watching changes
+$ npm test run
+```
+
 ## Publishing
 
 - WIP
