@@ -1,23 +1,19 @@
-import { ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	appearance?: 'solid' | 'outline';
-	size?: 'xs' | 'sm' | 'md' | 'lg';
-	variant?: 'primary' | 'secondary' | 'success' | 'error';
-}
+import { ButtonProps } from '@/types/button'
 
 const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	appearance = 'solid',
 	size = 'md',
 	className,
+	testId,
 	children,
 	...props
 }) => {
 	return (
 		<button
 			{...props}
+			data-testid={testId}
 			className={clsx(
 				'font-semibold transition-all duration-150',
 				'inline-flex items-center flex-shrink-0 gap-x-1.5',
