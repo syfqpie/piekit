@@ -9,7 +9,7 @@ import { ${componentName} } from '@/components/${componentName}'
 
 const ${componentName}Sandbox = () => {
 	return (
-		<SandboxView title='${componentName} Component'>
+		<SandboxView title='${componentName}'>
 			<SandboxSection title='Add section title'>
 				// Add content here
 			</SandboxSection>
