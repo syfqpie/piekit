@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Button from './Button'
 
-describe('[PieKit] Button component', () => {
+describe('[PieKit Test] Button component', () => {
 	it('renders content correctly', () => {
 		render(<Button>Click</Button>)
 		expect(screen.getByText('Click')).toBeInTheDocument()

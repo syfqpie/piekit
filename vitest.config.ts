@@ -6,7 +6,11 @@ export default defineConfig({
 	test: {
 		environment: 'jsdom',
 		globals: true,
-		setupFiles: '/setupTests.ts',
-		root: './src/tests',
+		setupFiles: './src/tests/setupTests.ts',
+	},
+	resolve: {
+		alias: {
+			'@': '/src',
+		},
 	},
 })
