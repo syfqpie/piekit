@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { CardProps } from '@/types/card'
+import { CardProps } from '../../types/card'
 
 const Card: React.FC<CardProps> = ({
 	className,
