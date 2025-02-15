@@ -15,6 +15,25 @@ $ npm install
 
 # start local development server
 $ npm run dev
+
+# to create new component using script
+$ npm run generate component <ComponentName>
+
+# to create new sandbox using script
+$ npm run generate sandbox <ComponentName>
+
+```
+
+## Unit testing
+
+You can run unit testing by running
+
+```bash
+# while watching changes
+$ npm test
+
+# without watching changes
+$ npm test run
 ```
 
 ## Publishing
