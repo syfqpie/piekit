@@ -17,7 +17,7 @@ const SandboxSidebar: React.FC<SandboxSidebarProps> = ({ componentNames, onSelec
 	}
 
 	return (
-		<nav className='p-5 border-r border-r-gray-200 shadow min-w-40 max-w-40 w-40 shadow-gray-900/10'>
+		<nav className='p-5 bg-gray-100 shadow min-w-52 max-w-52 w-52 shadow-gray-900/10'>
 			<h3 className='mb-2'>
 				Components
 			</h3>
@@ -26,6 +26,7 @@ const SandboxSidebar: React.FC<SandboxSidebarProps> = ({ componentNames, onSelec
 				{componentNames.map((name) => (
 					<li key={name} style={{ marginBottom: '5px' }}>
 						<Button
+							alignment='left'
 							className={clsx({
 								'bg-gray-800! enabled:hover:bg-gray-600! enabled:focus:ring-gray-500/30!': selected === name,
 								'bg-transparent! enabled:text-gray-800 enabled:hover:bg-gray-600/80! enabled:hover:text-white! enabled:focus:ring-gray-500/30!': selected !== name,

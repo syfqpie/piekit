@@ -3,6 +3,7 @@ import { ButtonProps } from '@/types/button'
 
 const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
+	alignment = 'center',
 	appearance = 'solid',
 	size = 'md',
 	full = false,
@@ -17,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 			data-testid={testId}
 			className={clsx(
 				'font-semibold transition-all duration-150',
-				'inline-flex items-center flex-shrink-0 gap-x-1.5',
+				'inline-flex items-center justify-center flex-shrink-0 gap-x-1.5',
 				'focus:outline-none focus-visible:outline-none focus:ring-2',
 				'disabled:cursor-not-allowed disabled:opacity-30',
 				{
@@ -41,6 +42,9 @@ const Button: React.FC<ButtonProps> = ({
 
 					// full
 					'w-full': full,
+					'justify-start': alignment === 'left',
+					'justify-center': alignment === 'center',
+					'justify-end': alignment === 'right',
 				},
 				className,
 			)}>
