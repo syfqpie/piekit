@@ -64,6 +64,18 @@ const ButtonSandbox = () => {
 		 			</Button>
 		 		</div>
 		 	</SandboxSection>
+
+			 <SandboxSection title='Full'>
+			 	<div className='flex flex-col gap-2 max-w-52'>
+		 			<Button full={true}>
+		 				Solid
+		 			</Button>
+
+		 			<Button appearance='outline'>
+		 				Outline
+		 			</Button>
+		 		</div>
+		 	</SandboxSection>
 		</SandboxView>
 	)
 }

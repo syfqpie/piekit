@@ -7,4 +7,5 @@ export type ButtonProps = TestComponentMixin &
 			appearance?: 'solid' | 'outline';
 			size?: 'xs' | 'sm' | 'md' | 'lg';
 			variant?: 'primary' | 'secondary' | 'success' | 'error';
+			full?: boolean;
 		}

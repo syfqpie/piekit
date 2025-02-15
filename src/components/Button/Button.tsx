@@ -5,6 +5,7 @@ const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	appearance = 'solid',
 	size = 'md',
+	full = false,
 	className,
 	testId,
 	children,
@@ -39,6 +40,9 @@ const Button: React.FC<ButtonProps> = ({
 					'text-secondary-500 border-secondary-500 enabled:hover:bg-secondary-500 enabled:focus:ring-secondary-500/40': appearance === 'outline' && variant === 'secondary',
 					'text-success-500 border-success-500 enabled:hover:bg-success-500 enabled:focus:ring-success-500/40': appearance === 'outline' && variant === 'success',
 					'text-error-500 border-error-500 enabled:hover:bg-error-500 enabled:focus:ring-error-500/40': appearance === 'outline' && variant === 'error',
+
+					// full
+					'w-full': full,
 				},
 				className,
 			)}>
