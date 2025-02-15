@@ -12,7 +12,8 @@
     "build": "tsc -b && vite build",
     "test": "vitest",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "node scripts/generate.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
