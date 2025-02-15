@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/lib/main'
 
 interface SandboxSidebarProps {
 	componentNames: string[];
