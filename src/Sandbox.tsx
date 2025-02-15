@@ -12,6 +12,10 @@ const Sandbox = () => {
 	// eslint-disable-next-line
 	const Component = React.lazy(modules[`./sandbox/${ selected }.tsx`] as any)
 
+	React.useEffect(() => {
+		document.title = 'PieKit Sandbox'
+	}, [])
+
 	return (
 		<div className='flex h-svh'>
 			<SandboxSidebar
