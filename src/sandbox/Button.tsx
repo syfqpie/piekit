@@ -1,7 +1,7 @@
+import { Button } from '@/lib/components/Button'
+
 import SandboxSection from '@/layout/sandbox/SandboxSection'
 import SandboxView from '@/layout/sandbox/SandboxView'
-
-import { Button } from '@/components/Button'
 
 const ButtonSandbox = () => {
 	return (

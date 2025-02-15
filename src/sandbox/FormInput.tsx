@@ -1,6 +1,7 @@
+import { FormInput } from '@/lib/components/FormInput'
+
 import SandboxSection from '@/layout/sandbox/SandboxSection'
 import SandboxView from '@/layout/sandbox/SandboxView'
-import { FormInput } from '@/components/FormInput'
 
 const FormInputSandbox = () => {
 	return (
