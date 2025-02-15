@@ -16,11 +16,9 @@ const ButtonSandbox = () => {
 			<SandboxSection title='Variant'>
 		 		<div className='flex flex-row gap-2'>
 		 			<Button>Primary (default)</Button>
-		 			<Button variant='secondary'>Secondary</Button>
 		 			<Button variant='success'>Success</Button>
 		 			<Button variant='error'>Error</Button>
 		 			<Button appearance='outline'>Primary outline</Button>
-		 			<Button appearance='outline' variant='secondary'>Secondary outline</Button>
 		 			<Button appearance='outline' variant='success'>Success outline</Button>
 		 			<Button appearance='outline' variant='error'>Error outline</Button>
 		 		</div>
@@ -29,11 +27,9 @@ const ButtonSandbox = () => {
 		 	<SandboxSection title='Disabled'>
 		 		<div className='flex flex-row gap-2'>
 		 			<Button disabled>Primary (default)</Button>
-		 			<Button disabled variant='secondary'>Secondary</Button>
 		 			<Button disabled variant='success'>Success</Button>
 		 			<Button disabled variant='error'>Error</Button>
 		 			<Button disabled appearance='outline'>Primary outline</Button>
-		 			<Button disabled appearance='outline' variant='secondary'>Secondary outline</Button>
 		 			<Button disabled appearance='outline' variant='success'>Success outline</Button>
 		 			<Button disabled appearance='outline' variant='error'>Error outline</Button>
 		 		</div>

@@ -6,6 +6,6 @@ export type ButtonProps = TestComponentMixin &
 		{
 			appearance?: 'solid' | 'outline';
 			size?: 'xs' | 'sm' | 'md' | 'lg';
-			variant?: 'primary' | 'secondary' | 'success' | 'error';
+			variant?: 'primary' | 'success' | 'error';
 			full?: boolean;
 		}
