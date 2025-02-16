@@ -1,8 +1,19 @@
 {
   "name": "piekit",
+  "description": "React components, freshly baked",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.5",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://piekit.cendol.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syfqpie/piekit"
+  },
+  "bugs": {
+    "url": "https://github.com/syfqpie/piekit/issues"
+  },
+  "keywords": ["react", "ui", "components", "vite", "kit"],
   "main": "dist/piekit.cjs.js",
   "module": "dist/piekit.es.js",
   "types": "dist/piekit.d.ts",
