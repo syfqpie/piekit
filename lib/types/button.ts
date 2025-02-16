@@ -4,7 +4,7 @@ import { TestComponentMixin } from './mixins'
 export type ButtonProps = TestComponentMixin &
 	ButtonHTMLAttributes<HTMLButtonElement> &
 		{
-			alignment?: 'left' | 'center' | 'right';
+			alignment?: 'start' | 'center' | 'end';
 			appearance?: 'solid' | 'outline';
 			size?: 'xs' | 'sm' | 'md' | 'lg';
 			variant?: 'primary' | 'success' | 'error';
