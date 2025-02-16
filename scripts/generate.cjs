@@ -9,10 +9,10 @@
  * Commands:
  *   sandbox   - Generates a sandbox file under <root>/src/sandbox/<ComponentName>.tsx
  *   component - Generates a component template:
- *				1. Component file: <root>/src/components/<ComponentName>/<ComponentName>.tsx
- *				2. Test file:      <root>/src/components/<ComponentName>/<ComponentName>.test.tsx
- *				3. Updates index:  <root>/src/components/<ComponentName>/index.ts
- *				4. Type file:      <root>/src/types/<componentname>.ts
+ *				1. Component file: <root>/lib/components/<ComponentName>/<ComponentName>.tsx
+ *				2. Test file:      <root>/lib/components/<ComponentName>/<ComponentName>.test.tsx
+ *				3. Updates index:  <root>/lib/components/<ComponentName>/index.ts
+ *				4. Type file:      <root>/lib/types/<componentname>.ts
  */
 
 const fs = require('fs')

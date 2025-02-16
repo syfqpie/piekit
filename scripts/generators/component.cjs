@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = (componentName, rootDir) => {
-    const componentsDir = path.join(rootDir, 'src', 'components', componentName)
-    const typesDir = path.join(rootDir, 'src', 'types')
+    const componentsDir = path.join(rootDir, 'lib', 'components', componentName)
+    const typesDir = path.join(rootDir, 'lib', 'types')
 
     // pre stage: check directory
     if (!fs.existsSync(componentsDir)) {
@@ -12,7 +12,7 @@ module.exports = (componentName, rootDir) => {
 
     // stage 1: component file
     const componentContent = `import clsx from 'clsx'
-import { ${componentName}Props } from '@/types/${componentName.toLowerCase()}'
+import { ${componentName}Props } from '../../types/${componentName.toLowerCase()}'
 
 const ${componentName}: React.FC<${componentName}Props> = ({
 	className,
