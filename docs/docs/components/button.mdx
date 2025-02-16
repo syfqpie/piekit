@@ -1,0 +1,92 @@
+---
+sidebar_position: 1
+---
+
+# Button
+
+Button is a custom button component that encapsulates button functionality with our default design look.
+
+## Import
+
+```tsx
+import { Button } from 'piekit'
+```
+
+## Basic usage
+
+```tsx
+<Button>
+    Click me
+</Button>
+```
+
+### Disabled state
+
+We can toggle disabled state by passing boolean value to disabled attribute
+
+```tsx
+<Button disabled> Click me </Button>
+
+<Button disabled={true}> Click me </Button>
+```
+
+### Sizes
+
+There are 4 variants of button sizes avaiable: `xs` | `sm` | `md` | `lg`
+
+```tsx
+<Button size='lg'> Large </Button>
+
+<Button> Medium (default) </Button>
+
+<Button size='sm'> Small </Button>
+
+<Button size='xs'> Extra small </Button>
+```
+
+### Variants
+
+There are 3 variants of colors available: `primary` | `success` | `error`, and 2 variants for appearance `solid` | `outline`
+
+```tsx
+<Button> Primary (default) </Button>
+<Button variant='success'> Success </Button>
+<Button variant='error'> Error </Button>
+<Button appearance='outline'> Primary outline </Button>
+<Button appearance='outline' variant='success'> Success outline </Button>
+<Button appearance='outline' variant='error'> Error outline </Button>
+```
+
+### Full width
+
+We can toggle full width style by passing `boolean` value to `full` attribute
+
+```tsx
+<Button full={true}> Solid </Button>
+
+<Button appearance='outline' full={true}> Outline </Button>
+```
+
+### Alignment
+
+We can set content alignment with 3 variants `start` | `center` | `end`
+
+```tsx
+<Button full={true} alignment='start'> Left</Button>
+<Button full={true} alignment='center'>	Center (default)</Button>
+<Button full={true} alignment='end'> Right</Button>
+```
+
+### Test automation tag
+
+We can add a test automation tag to a component using the testId attribute. This helps with identifying elements in automated tests
+
+```tsx
+<Button testId='button-ta'> Click me </Button>
+```
+
+Rendered as:
+
+```html
+<button data-testid="button-ta"> Click me </button>
+```
