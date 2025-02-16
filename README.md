@@ -34,14 +34,14 @@ Then follow the [Tailwind CSS installation guide](https://tailwindcss.com/docs/i
 Clone the repository and install the dependencies:
 
 ```bash
-# Clone the repository
+# clone the repository
 git clone https://github.com/syfqpie/piekit
 cd piekit
 
-# Install pre-commit hook (if you don't have it)
+# install pre-commit hook (if you don't have it)
 pre-commit install --hook-type commit-msg
 
-# Install dependencies
+# install dependencies
 npm install
 ```
 
@@ -84,3 +84,22 @@ Run unit tests using [Vitest](https://vitest.dev/):
   ```bash
   npm test run
   ```
+
+## Documentation
+
+We are building documentation using [Docusaurus](https://docusaurus.io/), and is parked under `/docs` directory:
+
+```bash
+# assuming you are already in `/docs` directory
+# install dependencies, if not yet done
+npm install
+
+# to start dev server
+npm start
+
+# building for production
+npm build
+
+# run production build locally
+npm serve
+```
