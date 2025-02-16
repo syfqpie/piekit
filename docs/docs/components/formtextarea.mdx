@@ -1,0 +1,65 @@
+---
+sidebar_position: 4
+---
+
+# FormTextArea
+
+FormTextArea is a customizable textarea component that standardizes form field behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormTextArea } from 'piekit'
+```
+
+## Basic usage
+
+```tsx
+<FormTextArea label='Name' placeholder='Enter name' />
+```
+
+### Disabled state
+
+We can toggle disabled state by passing boolean value to disabled attribute
+
+```tsx
+<FormTextArea disabled />
+
+<FormTextArea disabled={true} />
+```
+
+### Error state
+
+We can toggle error state by passing boolean value to `hasError` attribute. Error messages is optional, can be passed to `errorMessages` attribute as string of array
+
+```tsx
+<FormTextArea
+    label='Name'
+    placeholder='Enter name'
+    hasError={true}
+    errorMessages={['Field required']} />
+```
+
+
+### Test automation tag
+
+We can add a test automation tag to a component using the testId attribute. This helps with identifying elements in automated tests
+
+```tsx
+<FormTextArea
+    testId='ta-name'
+    label='Name'
+    placeholder='Enter name'
+    hasError={true}
+    errorMessages={['Field required']} />
+```
+
+Rendered as:
+
+```html
+<div data-testid="ta-name-form">
+    <label data-testid="ta-name-label">Name</label>
+    <textarea placeholder="Enter name" data-testid="ta-name-textarea"></textarea>
+    <p data-testid="ta-name-error-msg-0">Field required</p>
+</div>
+```

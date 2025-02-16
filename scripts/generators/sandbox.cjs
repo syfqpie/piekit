@@ -3,9 +3,9 @@ const path = require('path')
 
 module.exports = (componentName, rootDir) => {
     const sandboxDir = path.join(rootDir, 'src', 'sandbox')
-    const content = `import SandboxSection from '@/layout/sandbox/SandboxSection'
+    const content = `import { ${componentName} } from '@/lib/components/${componentName}'
+import SandboxSection from '@/layout/sandbox/SandboxSection'
 import SandboxView from '@/layout/sandbox/SandboxView'
-import { ${componentName} } from '@/components/${componentName}'
 
 const ${componentName}Sandbox = () => {
 	return (
