@@ -1,0 +1,39 @@
+---
+sidebar_position: 2
+---
+
+# Card
+
+Card is a flexible container component that provides a structured layout with a default design, ideal for grouping related content."
+
+## Import
+
+```tsx
+import { Card } from 'piekit'
+```
+
+## Basic usage
+
+```tsx
+<Card>
+    Card content
+</Card>
+```
+
+### Test automation tag
+
+We can add a test automation tag to a component using the testId attribute. This helps with identifying elements in automated tests
+
+```tsx
+<Card testId='ta-card' />
+    content
+</Card>
+```
+
+Rendered as:
+
+```html
+<div data-testid="ta-card">
+    content
+</div>
+```
