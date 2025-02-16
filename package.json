@@ -1,11 +1,12 @@
 {
   "name": "piekit",
-  "private": true,
-  "version": "0.1.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "main": "dist/piekit.cjs.js",
   "module": "dist/piekit.es.js",
   "types": "dist/piekit.d.ts",
+  "style": "dist/piekit.css",
   "files": [
     "dist"
   ],
@@ -19,8 +20,8 @@
     "generate": "node scripts/generate.cjs"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "tailwindcss": "^4.0.6"
+    "@testing-library/user-event": "^14.6.1",
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -47,6 +48,7 @@
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "tailwindcss": "^4.0.6"
   }
 }
