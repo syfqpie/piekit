@@ -6,6 +6,7 @@
   "main": "dist/piekit.cjs.js",
   "module": "dist/piekit.es.js",
   "types": "dist/piekit.d.ts",
+  "style": "dist/piekit.css",
   "files": [
     "dist"
   ],
@@ -19,8 +20,7 @@
     "generate": "node scripts/generate.cjs"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "tailwindcss": "^4.0.6"
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -46,6 +46,7 @@
     "vitest": "^3.0.5"
   },
   "peerDependencies": {
+    "tailwindcss": "^4.0.6",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   }
