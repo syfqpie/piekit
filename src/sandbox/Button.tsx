@@ -75,7 +75,7 @@ const ButtonSandbox = () => {
 
 			 <SandboxSection title='Alignment'>
 			 	<div className='flex flex-col gap-2 max-w-52'>
-		 			<Button full={true}  alignment='left'>
+		 			<Button full={true}  alignment='start'>
 		 				Left
 		 			</Button>
 
@@ -83,7 +83,7 @@ const ButtonSandbox = () => {
 		 				Center (default)
 		 			</Button>
 
-					 <Button full={true} alignment='right'>
+					 <Button full={true} alignment='end'>
 		 				Right
 		 			</Button>
 		 		</div>

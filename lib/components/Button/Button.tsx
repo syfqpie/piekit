@@ -42,9 +42,9 @@ const Button: React.FC<ButtonProps> = ({
 
 					// full
 					'w-full': full,
-					'justify-start': alignment === 'left',
+					'justify-start': alignment === 'start',
 					'justify-center': alignment === 'center',
-					'justify-end': alignment === 'right',
+					'justify-end': alignment === 'end',
 				},
 				className,
 			)}>
