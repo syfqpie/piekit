@@ -35,12 +35,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "generate": "node scripts/generate.cjs",
-    "bump:pkg:patch": "pnpm version patch -m \"build: %s\"",
-    "bump:pkg:minor": "pnpm version minor -m \"build: %s\"",
-    "bump:pkg:major": "pnpm version major -m \"build: %s\"",
-    "bump:docs:patch": "pnpm --filter docs version patch -m \"build: %s\"",
-    "bump:docs:minor": "pnpm --filter docs version minor -m \"build: %s\"",
-    "bump:docs:major": "pnpm --filter docs version major -m \"build: %s\""
+    "bump:patch": "pnpm version patch -m \"build: %s\"",
+    "bump:minor": "pnpm version minor -m \"build: %s\"",
+    "bump:major": "pnpm version major -m \"build: %s\""
   },
   "dependencies": {
     "@testing-library/user-event": "^14.6.1",
