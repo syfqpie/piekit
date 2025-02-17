@@ -1,6 +1,7 @@
 {
   "name": "piekit-doc",
-  "version": "0.0.7",
+  "description": "React components, freshly baked",
+  "version": "0.0.8",
   "private": true,
   "scripts": {
     "docu": "docusaurus",
