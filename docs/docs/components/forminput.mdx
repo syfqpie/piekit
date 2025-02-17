@@ -2,9 +2,11 @@
 sidebar_position: 3
 ---
 
+import { FormInput } from 'piekit'
+
 # FormInput
 
-FormInput is a customizable input component that standardizes form field behavior and styling while ensuring a consistent user experience.
+`FormInput` is a customizable input component that standardizes `input` behavior and styling while ensuring a consistent user experience.
 
 ## Import
 
@@ -14,23 +16,46 @@ import { FormInput } from 'piekit'
 
 ## Basic usage
 
+<FormInput label='Name' placeholder='Enter name' />
+<br />
+
 ```tsx
 <FormInput label='Name' placeholder='Enter name' />
 ```
 
-### Disabled state
+## Props
 
-We can toggle disabled state by passing boolean value to disabled attribute
+### Label
+Default value: `undefined`\
+Type: `string`\
+Description: The `label` prop will enable the label on top of the input:
+
+
+### Disabled
+
+Default value: `false`\
+Type: `boolean`\
+Description: If `disabled` prop is set to `true`, the input will be disabled.
+
+<FormInput placeholder='Enter name' disabled />
+<br />
 
 ```tsx
-<FormInput disabled />
-
-<FormInput disabled={true} />
+<FormInput placeholder='Enter name' disabled={true} />
 ```
 
 ### Error state
 
-We can toggle error state by passing boolean value to `hasError` attribute. Error messages is optional, can be passed to `errorMessages` attribute as string of array
+Default value: `false`\
+Type: `boolean`\
+Description: If `hasError` prop is set to `true`, the input appearance will change to `error` variant.
+
+<FormInput
+    label='Name'
+    placeholder='Enter name'
+    hasError={true}
+    errorMessages={['Field required']} />
+<br />
 
 ```tsx
 <FormInput
@@ -40,10 +65,15 @@ We can toggle error state by passing boolean value to `hasError` attribute. Erro
     errorMessages={['Field required']} />
 ```
 
+### Error messages
+
+Default value: `[]`\
+Type: `string[]`\
+Description: If `errorMessages` prop is being set, error messages will be shown. `hasError` have to be set to `true`
 
 ### Test automation tag
 
-We can add a test automation tag to a component using the testId attribute. This helps with identifying elements in automated tests
+To assist with automated testing, add a `testId` attribute to the `FormInput`.
 
 ```tsx
 <FormInput
