@@ -2,7 +2,7 @@
   "name": "piekit",
   "description": "React components, freshly baked",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "license": "MIT",
   "homepage": "https://piekit.cendol.dev",
