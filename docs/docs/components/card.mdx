@@ -2,9 +2,11 @@
 sidebar_position: 2
 ---
 
+import { Card } from 'piekit'
+
 # Card
 
-Card is a flexible container component that provides a structured layout with a default design, ideal for grouping related content."
+The `Card` component is a flexible container used to group related content in a clean layout.
 
 ## Import
 
@@ -14,6 +16,12 @@ import { Card } from 'piekit'
 
 ## Basic usage
 
+<Card>
+    Card content
+</Card>
+<br />
+<br />
+
 ```tsx
 <Card>
     Card content
@@ -22,7 +30,7 @@ import { Card } from 'piekit'
 
 ### Test automation tag
 
-We can add a test automation tag to a component using the testId attribute. This helps with identifying elements in automated tests
+To assist with automated testing, add a `testId` attribute to the `Card`.
 
 ```tsx
 <Card testId='ta-card' />

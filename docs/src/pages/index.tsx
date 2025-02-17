@@ -12,11 +12,19 @@ function HomepageHeader() {
 	return (
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className="container">
-				<img src='../img/piekit.png' width='50' />
+				<img
+					src='../img/piekit.png'
+					style={{ marginLeft: 'auto', marginRight: 'auto' }}
+					width='50' />
+
 				<Heading as="h1" className="hero__title">
 					{siteConfig.title}
 				</Heading>
-				<p className="hero__subtitle">{siteConfig.tagline}</p>
+
+				<p className="hero__subtitle">
+					{siteConfig.tagline}
+				</p>
+
 				<div className={styles.buttons}>
 					<Link
 						className="button button--primary"

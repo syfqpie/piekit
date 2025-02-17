@@ -1,3 +1,5 @@
+@import '~piekit/dist/piekit.css';
+
 :root {
 	--ifm-color-primary: #111827;
 	--ifm-color-primary-dark: #1f2937;
@@ -51,4 +53,8 @@
 
 .footer--dark {
 	--ifm-footer-background-color: #111827;
+}
+
+svg {
+	display: inline-block;
 }
