@@ -11,6 +11,6 @@
   "env": {
     "PNPM_HOME": ".pnpm"
   },
-  "buildCommand": "sleep 60 && pnpm install --frozen-lockfile && pnpm --filter ./docs update piekit && pnpm --filter ./docs build"
+  "buildCommand": "pnpm install --frozen-lockfile && pnpm update piekit && pnpm build"
 }
   
