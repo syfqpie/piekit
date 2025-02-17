@@ -1,26 +1,26 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-import { FormInput } from 'piekit'
+import { FormTextArea } from 'piekit'
 
-# FormInput
+# FormTextArea
 
-`FormInput` is a customizable input component that standardizes `input` behavior and styling while ensuring a consistent user experience.
+`FormTextArea` is a customizable textarea component that standardizes `textarea` behavior and styling while ensuring a consistent user experience.
 
 ## Import
 
 ```tsx
-import { FormInput } from 'piekit'
+import { FormTextArea } from 'piekit'
 ```
 
 ## Basic usage
 
-<FormInput label='Name' placeholder='Enter name' />
+<FormTextArea label='Name' placeholder='Enter name' />
 <br />
 
 ```tsx
-<FormInput label='Name' placeholder='Enter name' />
+<FormTextArea label='Name' placeholder='Enter name' />
 ```
 
 ## Props
@@ -28,29 +28,29 @@ import { FormInput } from 'piekit'
 ### Label
 Default value: `undefined`\
 Type: `string`\
-Description: The `label` prop will enable the label on top of the input:
+Description: The `label` prop will enable the label on top of the textarea:
 
 
 ### Disabled
 
 Default value: `false`\
 Type: `boolean`\
-Description: If `disabled` prop is set to `true`, the input will be disabled.
+Description: If `disabled` prop is set to `true`, the textarea will be disabled.
 
-<FormInput placeholder='Enter name' disabled />
+<FormTextArea placeholder='Enter name' disabled />
 <br />
 
 ```tsx
-<FormInput placeholder='Enter name' disabled={true} />
+<FormTextArea placeholder='Enter name' disabled={true} />
 ```
 
 ### Error state
 
 Default value: `false`\
 Type: `boolean`\
-Description: If `hasError` prop is set to `true`, the input appearance will change to `error` variant.
+Description: If `hasError` prop is set to `true`, the textarea appearance will change to `error` variant.
 
-<FormInput
+<FormTextArea
     label='Name'
     placeholder='Enter name'
     hasError={true}
@@ -58,7 +58,7 @@ Description: If `hasError` prop is set to `true`, the input appearance will chan
 <br />
 
 ```tsx
-<FormInput
+<FormTextArea
     label='Name'
     placeholder='Enter name'
     hasError={true}
@@ -73,10 +73,10 @@ Description: If `errorMessages` prop is being set, error messages will be shown.
 
 ### Test automation tag
 
-To assist with automated testing, add a `testId` attribute to the `FormInput`.
+To assist with automated testing, add a `testId` attribute to the `FormTextArea`.
 
 ```tsx
-<FormInput
+<FormTextArea
     testId='ta-name'
     label='Name'
     placeholder='Enter name'
@@ -89,7 +89,7 @@ Rendered as:
 ```html
 <div data-testid="ta-name-form">
     <label data-testid="ta-name-label">Name</label>
-    <input placeholder="Enter name" data-testid="ta-name-input">
+    <textarea placeholder="Enter name" data-testid="ta-name-textarea"></textarea>
     <p data-testid="ta-name-error-msg-0">Field required</p>
 </div>
 ```
