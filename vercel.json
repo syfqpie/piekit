@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "docs/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "docs/dist"
@@ -11,6 +11,6 @@
   "env": {
     "PNPM_HOME": ".pnpm"
   },
-  "buildCommand": "sleep 60 && pnpm install --frozen-lockfile && pnpm update piekit && pnpm --filter ./docs build"
+  "buildCommand": "sleep 60 && pnpm install --frozen-lockfile && pnpm --filter ./docs update piekit && pnpm --filter ./docs build"
 }
   
