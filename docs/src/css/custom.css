@@ -1,4 +1,4 @@
-@import '~piekit/dist/piekit.css';
+@import 'piekit/dist/piekit.css';
 
 :root {
 	--ifm-color-primary: #111827;
