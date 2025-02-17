@@ -11,11 +11,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+      - name: Setup node v20
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: pnpm install --frozen-lockfile
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - run: pnpm test
 
   publish-npm:
