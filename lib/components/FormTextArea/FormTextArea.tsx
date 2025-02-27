@@ -3,6 +3,7 @@ import { FormTextAreaProps } from '../../types/formtextarea'
 
 const FormTextArea: React.FC<FormTextAreaProps> = ({
 	className,
+	groupClassName,
 	label,
 	testId,
 	hasError = false,
@@ -11,6 +12,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = ({
 }) => {
 	return (
 		<div
+			className={groupClassName}
 			data-testid={`${ testId }-form`}>
 			{
 				label === undefined
@@ -28,7 +30,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = ({
 				{...props}
 				className={clsx(
 					'block w-full rounded-lg px-2.5 py-1.5 border',
-					'bg-white shadow-sm',
+					'bg-white shadow-sm text-sm',
 					'disabled:cursor-not-allowed disabled:opacity-60 outline-none',
 					'ring-0 focus:ring-2',
 					{
@@ -45,7 +47,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = ({
 						errorMessages.map((err, index) => {
 							return (
 								<p
-									className='text-sm mt-1 text-red-300'
+									className='text-xs mt-1 text-red-300'
 									data-testid={`${ testId }-error-msg-${ index }`}
 									key={index}>
 									{ err }
