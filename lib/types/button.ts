@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { TestComponentMixin } from './mixins'
 
 export type ButtonProps = TestComponentMixin &
-	ButtonHTMLAttributes<HTMLButtonElement> &
+	ComponentPropsWithRef<'button'> &
 		{
 			alignment?: 'start' | 'center' | 'end';
 			appearance?: 'solid' | 'outline';
