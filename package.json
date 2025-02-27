@@ -2,7 +2,7 @@
   "name": "piekit",
   "description": "React components, freshly baked",
   "private": false,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "license": "MIT",
   "homepage": "https://piekit.cendol.dev",
@@ -25,8 +25,12 @@
   "types": "dist/piekit.d.ts",
   "style": "dist/piekit.css",
   "exports": {
-    "import": "./dist/piekit.es.js",
-    "require": "./dist/piekit.cjs.js"
+    ".": {
+      "types": "./dist/piekit.d.ts",
+      "style": "./dist/piekit.css",
+      "import": "./dist/piekit.es.js",
+      "require": "./dist/piekit.cjs.js"
+    }
   },
   "files": [
     "dist"
