@@ -76,4 +76,27 @@ export type ${componentName}Props = TestComponentMixin &
     const typeFile = path.join(typesDir, `${componentName.toLowerCase()}.ts`)
     fs.writeFileSync(typeFile, typeContent, 'utf8')
     console.log(`[PieKit Script] ✅ Type file created at: ${typeFile}`)
+
+    // stage 5: story file
+    const storyContent = `import type { Meta, StoryObj } from '@storybook/react'
+import ${componentName} from './${componentName}'
+
+const meta: Meta<typeof ${componentName}> = {
+	title: 'Components/${componentName}',
+	component: ${componentName},
+	args: { },
+	argTypes: { },
+}
+
+export default meta
+
+type Story = StoryObj<typeof ${componentName}>
+
+export const Default: Story = {
+    args: { },
+}
+`
+    const storyFile = path.join(componentsDir, `${componentName}.stories.ts`)
+    fs.writeFileSync(storyFile, storyContent, 'utf8')
+    console.log(`[PieKit Script] ✅ Story file created at: ${storyFile}`)
 }
