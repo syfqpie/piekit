@@ -37,7 +37,9 @@
     "generate": "node scripts/generate.cjs",
     "bump:patch": "pnpm version patch -m \"build: %s\"",
     "bump:minor": "pnpm version minor -m \"build: %s\"",
-    "bump:major": "pnpm version major -m \"build: %s\""
+    "bump:major": "pnpm version major -m \"build: %s\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@carbon/icons-react": "^11.55.0",
@@ -46,7 +48,15 @@
     "motion": "^12.4.10"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.19.0",
+    "@storybook/addon-essentials": "^8.6.4",
+    "@storybook/addon-interactions": "^8.6.4",
+    "@storybook/addon-onboarding": "^8.6.4",
+    "@storybook/blocks": "^8.6.4",
+    "@storybook/react": "^8.6.4",
+    "@storybook/react-vite": "^8.6.4",
+    "@storybook/test": "^8.6.4",
     "@tailwindcss/vite": "^4.0.6",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -57,11 +67,13 @@
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "eslint-plugin-storybook": "^0.11.4",
     "globals": "^15.14.0",
     "jsdom": "^26.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rollup": "^4.34.7",
+    "storybook": "^8.6.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0",
@@ -72,5 +84,11 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "tailwindcss": "^4.0.6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended",
+      "plugin:storybook/recommended"
+    ]
   }
 }
