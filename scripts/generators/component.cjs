@@ -1,20 +1,63 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = (componentName, rootDir) => {
-    const componentsDir = path.join(rootDir, 'lib', 'components', componentName)
-    const typesDir = path.join(rootDir, 'lib', 'types')
-
-    // pre stage: check directory
-    if (!fs.existsSync(componentsDir)) {
-        fs.mkdirSync(componentsDir, { recursive: true });
+const generateComponentFiles = (componentName, rootDir) => {
+	const paths = {
+        components: path.join(rootDir, 'lib', 'components', componentName),
+        types: path.join(rootDir, 'lib', 'types'),
     }
 
-    // stage 1: component file
-    const componentContent = `import clsx from 'clsx'
-import { ${componentName}Props } from '../../types/${componentName.toLowerCase()}'
+	if (!fs.existsSync(paths.components)) {
+        fs.mkdirSync(paths.components, { recursive: true })
+    }
 
-const ${componentName}: React.FC<${componentName}Props> = ({
+	const files = [
+        { name: `${componentName}.tsx`, content: generateComponentContent(componentName), dir: paths.components },
+        { name: `${componentName}.test.tsx`, content: generateTestContent(componentName), dir: paths.components },
+        { name: `${componentName}.stories.tsx`, content: generateStoryContent(componentName), dir: paths.components },
+        { name: `${componentName}.mdx`, content: generateDocsContent(componentName), dir: paths.components },
+        { name: `${componentName.toLowerCase()}.ts`, content: generateTypeContent(componentName), dir: paths.types },
+    ]
+
+	let createdFiles = 0
+
+	// create required files
+    files.forEach(({ name, content, dir }) => {
+		const filePath = path.join(dir, name)
+
+        if (!fs.existsSync(filePath)) {
+            fs.writeFileSync(filePath, content, 'utf8')
+            console.log(`[PieKit Script] ✅ Created: ${filePath}`)
+            createdFiles++
+        }
+	})
+
+    if (createdFiles === 0) {
+        console.log(`[PieKit Script] ✅ All component files for ${componentName} already exist. Nothing to create.`)
+    }
+
+    updateIndexFile(paths.components, componentName)
+}
+
+const updateIndexFile = (componentsDir, componentName) => {
+    const indexFile = path.join(componentsDir, 'index.ts')
+    let indexContent = fs.existsSync(indexFile) ? fs.readFileSync(indexFile, 'utf8') : ''
+    const exportLine = `export { default as ${componentName} } from './${componentName}'\n`
+
+    if (!indexContent.includes(exportLine)) {
+        indexContent = indexContent.trimStart() + exportLine
+        fs.writeFileSync(indexFile, indexContent, 'utf8')
+        console.log(`[PieKit Script] ✅ Updated index.ts`)
+    } else {
+        console.log(`[PieKit Script] ⚠️ Index file already contains export for ${componentName}`)
+    }
+}
+
+const generateComponentContent = (name) => `
+import clsx from 'clsx'
+import { ${name}Props } from '../../types/${name.toLowerCase()}'
+
+const ${name}: React.FC<${name}Props> = ({
 	className,
 	testId,
 	...props
@@ -29,51 +72,64 @@ const ${componentName}: React.FC<${componentName}Props> = ({
 	)
 }
 
-export default ${componentName}
-`
-    const componentFile = path.join(componentsDir, `${componentName}.tsx`)
-    fs.writeFileSync(componentFile, componentContent, 'utf8')
-    console.log(`[PieKit Script] ✅ Component file created at: ${componentFile}`)
+export default ${name}
+`.trimStart()
 
-    // stage 2: test file
-    const testContent = `import { render, screen } from '@testing-library/react'
+const generateTestContent = (name) => `
+import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import ${componentName} from './${componentName}'
+import ${name} from './${name}'
 
-describe('[PieKit Test] ${componentName} component', () => {
+describe('[PieKit Test] ${name} component', () => {
 	it('renders with test tag', () => {
-		render(<${componentName} testId='test-${componentName.toLowerCase()}-id' />)
-		expect(screen.getByTestId('test-${componentName.toLowerCase()}-id')).toBeInTheDocument()
+		render(<${name} testId='test-${name.toLowerCase()}-id' />)
+		expect(screen.getByTestId('test-${name.toLowerCase()}-id')).toBeInTheDocument()
 	})
 })
-`
-    const testFile = path.join(componentsDir, `${componentName}.test.tsx`)
-    fs.writeFileSync(testFile, testContent, 'utf8')
-    console.log(`[PieKit Script] ✅ Test file created at: ${testFile}`)
+`.trimStart()
 
-    // stage 3: index file
-    const indexFile = path.join(componentsDir, 'index.ts')
-    let indexContent = ''
-    if (fs.existsSync(indexFile)) {
-        indexContent = fs.readFileSync(indexFile, 'utf8')
-    }
-    const exportLine = `export { default as ${componentName} } from './${componentName}'`
-    if (!indexContent.includes(exportLine)) {
-        indexContent = indexContent.trim() + '\n' + exportLine + '\n'
-        fs.writeFileSync(indexFile, indexContent, 'utf8')
-        console.log(`[PieKit Script] ✅ Index file updated at: ${indexFile}`)
-    } else {
-        console.log(`[PieKit Script] ⚠️  Index file already contains export for ${componentName}`)
-    }
+const generateStoryContent = (name) => `
+import type { Meta, StoryObj } from '@storybook/react'
+import ${name} from './${name}'
 
-    // stage 4: type file
-    const typeContent = `import { HTMLAttributes } from 'react'
+const meta: Meta<typeof ${name}> = {
+	title: 'Components/${name}',
+	component: ${name},
+	args: { },
+	argTypes: {
+		testId: {
+			name: 'Test automation tag',
+			description: 'Test automation ID',
+			control: 'text',
+		},
+	},
+}
+
+export default meta
+
+type Story = StoryObj<typeof ${name}>
+
+export const Default: Story = {
+	args: { },
+}
+`.trimStart()
+
+const generateDocsContent = (name) => `
+import { Canvas, Meta, Story } from '@storybook/blocks'
+import ${name} from './${name}'
+import * as ${name}Stories from './${name}.stories'
+
+<Meta of={${name}Stories} />
+
+# ${name}
+`.trimStart()
+
+const generateTypeContent = (name) => `
+import { HTMLAttributes } from 'react'
 import { TestComponentMixin } from './mixins'
 
-export type ${componentName}Props = TestComponentMixin &
+export type ${name}Props = TestComponentMixin &
 	HTMLAttributes<HTMLDivElement>
-`
-    const typeFile = path.join(typesDir, `${componentName.toLowerCase()}.ts`)
-    fs.writeFileSync(typeFile, typeContent, 'utf8')
-    console.log(`[PieKit Script] ✅ Type file created at: ${typeFile}`)
-}
+`.trimStart()
+
+module.exports = generateComponentFiles
