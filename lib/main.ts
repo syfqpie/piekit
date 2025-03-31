@@ -9,3 +9,5 @@ export type { ButtonProps } from './types/button'
 export type { CardProps } from './types/card'
 export type { FormInputProps } from './types/forminput'
 export type { FormTextAreaProps } from './types/formtextarea'
+
+export { useOuterClick } from './hooks/useOuterClick'

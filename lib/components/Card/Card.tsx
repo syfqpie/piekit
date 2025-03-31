@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({
 		<div
 			{...props}
 			className={clsx(
-				'p-6 rounded-xl bg-white text-gray-950 shadow-lg',
+				'p-6 rounded-xl bg-white text-gray-950 shadow-sm',
 				{},
 				className,
 			)}

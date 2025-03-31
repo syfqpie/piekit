@@ -3,6 +3,7 @@ import { FormInputProps } from '../../types/forminput'
 
 const FormInput: React.FC<FormInputProps> = ({
 	className,
+	groupClassName,
 	label,
 	testId,
 	hasError = false,
@@ -11,6 +12,7 @@ const FormInput: React.FC<FormInputProps> = ({
 }) => {
 	return (
 		<div
+			className={groupClassName}
 			data-testid={`${ testId }-form`}>
 			{
 				label === undefined
@@ -28,7 +30,7 @@ const FormInput: React.FC<FormInputProps> = ({
 				{...props}
 				className={clsx(
 					'block w-full rounded-lg px-2.5 py-1.5 border',
-					'bg-white shadow-sm',
+					'bg-white shadow-sm text-base md:text-sm',
 					'disabled:cursor-not-allowed disabled:opacity-60 outline-none',
 					'ring-0 focus:ring-2',
 					{
@@ -45,7 +47,7 @@ const FormInput: React.FC<FormInputProps> = ({
 						errorMessages.map((err, index) => {
 							return (
 								<p
-									className='text-sm mt-1 text-red-300'
+									className='text-xs mt-1 text-red-300'
 									data-testid={`${ testId }-error-msg-${ index }`}
 									key={index}>
 									{ err }

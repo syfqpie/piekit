@@ -12,7 +12,6 @@ A collection of reusable React UI components built with [Vite](https://vitejs.de
 
 - [Node.js](https://nodejs.org/en/download/) version 18.0 or above
 - [React.js](https://react.dev/) version 18.0 and above
-- [TailwindCSS](https://tailwindcss.com/) version 4.0 or above
 
 ## Installation
 
@@ -25,5 +24,5 @@ npm install piekit
 Then import `css` file into your main `css` file
 
 ```css
-@import 'piekit/dist/piekit.css';
+@import 'piekit';
 ```
