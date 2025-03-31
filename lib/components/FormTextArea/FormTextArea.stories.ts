@@ -22,8 +22,8 @@ const meta: Meta<typeof FormTextArea> = {
 			control: 'text',
 		},
 		testId: {
-			name: 'Test ID',
-			description: 'Component base test ID',
+			name: 'Test automation tag',
+			description: 'Test automation ID',
 			control: 'text',
 		},
 		hasError: {
@@ -43,28 +43,48 @@ export default meta
 
 type Story = StoryObj<typeof FormTextArea>
 
-export const Default: Story = {
+export const LabelOnly: Story = {
 	args: {
-		testId: 'default-form',
-		label: 'Address',
-		placeholder: 'Enter address',
+		label: 'Name',
+	},
+}
+
+export const PlaceholderOnly: Story = {
+	args: {
+		placeholder: 'Enter name',
 	},
 }
 
 export const Disabled: Story = {
 	args: {
-		testId: 'disabled-form',
-		label: 'Address',
-		placeholder: 'Enter address',
+		label: 'Name',
+		placeholder: 'Enter name',
 		disabled: true,
 	},
 }
 
-export const ErrorState: Story = {
+export const ErrorStateWithoutMessage: Story = {
 	args: {
-		testId: 'error-form',
-		label: 'Address',
-		placeholder: 'Enter address',
+		label: 'Name',
+		placeholder: 'Enter name',
+		hasError: true,
+	},
+}
+
+export const ErrorStateWithMessage: Story = {
+	args: {
+		label: 'Name',
+		placeholder: 'Enter name',
+		hasError: true,
+		errorMessages: ['Field required'],
+	},
+}
+
+export const WithTA: Story = {
+	args: {
+		testId: 'name-form-ta',
+		label: 'Name',
+		placeholder: 'Enter name',
 		hasError: true,
 		errorMessages: ['Field required'],
 	},

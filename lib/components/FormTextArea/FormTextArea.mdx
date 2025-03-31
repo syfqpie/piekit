@@ -1,0 +1,75 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+
+import FormTextArea from './FormTextArea'
+
+import * as FormTextAreaStories from './FormTextArea.stories';
+
+<Meta of={FormTextAreaStories} />
+
+# FormTextArea
+
+`FormTextArea` is a customizable textarea component that standardizes `textarea` behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormTextArea } from 'piekit'
+```
+
+## Props
+
+### Label
+
+Default value: `undefined`\
+Type: `string`\
+Description: The `label` prop sets a text label above the teaxtare field.
+
+<Canvas of={FormTextAreaStories.LabelOnly} />
+
+### Placeholder
+
+Default value: `undefined`\
+Type: `string`\
+Description: The `placeholder` prop sets a temporary hint inside the textarea field, displayed when it is empty.
+
+<Canvas of={FormTextAreaStories.PlaceholderOnly} />
+
+### Disabled
+
+Default value: `false`\
+Type: `boolean`\
+Description: If `disabled` prop is set to `true`, the textarea will be disabled.
+
+<Canvas of={FormTextAreaStories.Disabled} />
+
+### Error state
+
+Default value: `false`\
+Type: `boolean`\
+Description: If `hasError` prop is set to `true`, the textarea appearance will change to `error` variant.
+
+<Canvas of={FormTextAreaStories.ErrorStateWithoutMessage} />
+
+### Error messages
+
+Default value: `[]`\
+Type: `string[]`\
+Description: If `errorMessages` prop is being set, error messages will be shown. `hasError` have to be set to `true`.
+
+<Canvas of={FormTextAreaStories.ErrorStateWithMessage} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `FormTextArea`.
+
+<Canvas of={FormTextAreaStories.WithTA} />
+
+Will be rendered as:
+
+```html
+<div data-testid="name-form-ta-form">
+    <label data-testid="name-form-ta-label">Name</label>
+    <textarea placeholder="Enter name" data-testid="name-form-ta-textarea"></textarea>
+    <p data-testid="name-form-ta-error-msg-0">Field required</p>
+</div>
+```
