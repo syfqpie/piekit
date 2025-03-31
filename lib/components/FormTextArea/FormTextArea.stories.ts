@@ -80,6 +80,15 @@ export const ErrorStateWithMessage: Story = {
 	},
 }
 
+export const WithGroupClassName: Story = {
+	args: {
+		className: '!bg-gray-600',
+		groupClassName: 'bg-blue-400/30 p-4 rounded-md',
+		label: 'Address',
+		placeholder: 'Enter address',
+	},
+}
+
 export const WithTA: Story = {
 	args: {
 		testId: 'name-form-ta',
