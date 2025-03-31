@@ -77,3 +77,29 @@ Description: The `alignment` prop controls the alignment of the content inside t
 - `end`: Aligns the content to the right of the button.
 
 <Canvas of={ButtonStories.Alignment} />
+
+## Test automation tag
+
+
+To assist with automated testing, add a `testId` attribute to the `Button`.
+
+<Canvas of={ButtonStories.WithTA} />
+
+Will be rendered as:
+
+```html
+<button data-testid="button-ta">
+    Click me
+</button>
+```
+
+## Inherited default props
+
+The `Button` component inherits the standard HTML `<button>` attributes, including but not limited to:
+
+- `type` (default: `button`): Specifies the button type (e.g., `submit`, `reset`, `button`).
+- `name`: Defines the name of the button.
+- `value`: Specifies the value associated with the button in forms.
+- `aria-*`: Any `aria` attributes for accessibility (e.g., `aria-label`, `aria-hidden`).
+
+This allows you to pass standard button props seamlessly into the `Button` component.

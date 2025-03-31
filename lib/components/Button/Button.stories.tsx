@@ -42,6 +42,11 @@ const meta: Meta<typeof Button> = {
 			description: 'Set button disabled state',
 			control: 'boolean',
 		},
+		testId: {
+			name: 'Test automation tag',
+			description: 'Test automation ID',
+			control: 'text',
+		},
 	},
 }
 
@@ -121,6 +126,14 @@ export const Alignment: Story = {
 				<Button {...args} alignment='center'>Center</Button>
 				<Button {...args} alignment='end'>End</Button>
 			</div>
+		)
+	},
+}
+
+export const WithTA: Story = {
+	render: (args) => {
+		return (
+			<Button {...args} variant='primary' testId='button-ta'>Test button</Button>
 		)
 	},
 }
