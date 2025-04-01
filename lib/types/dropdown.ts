@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react'
 import { TestComponentMixin } from './mixins'
+import { Size } from './base'
 
 export interface DropdownItem {
 	label: string;
@@ -10,7 +11,7 @@ export interface DropdownItem {
 export type DropdownProps = TestComponentMixin &
 	HTMLAttributes<HTMLDivElement> &
 	{
-		size?: 'xs' | 'sm' | 'md' | 'lg';
+		size?: Size;
 		label?: string;
 		items?: DropdownItem[];
 		modelValue?: string;
