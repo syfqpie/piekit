@@ -57,7 +57,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 						transition={{
 							duration: 0.15,
 						}}
-						className='absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg'>
+						className={clsx(
+							'absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg',
+							{
+								'rounded-lg': size === 'xs' || size === 'sm' || size === 'md' || size === undefined,
+								'rounded-xl': size === 'lg',
+							},
+						)}>
 						<ul
 							className=''
 							data-testid={`${ testId }-dropdown`}>
