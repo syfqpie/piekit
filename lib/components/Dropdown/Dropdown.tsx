@@ -13,7 +13,6 @@ const Dropdown: React.FC<DropdownProps> = ({
 	size = 'md',
 	testId,
 	items = [],
-	renderItem,
 	modelValue,
 	setModelValue,
 	...props
@@ -58,9 +57,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 						transition={{
 							duration: 0.15,
 						}}
-						className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+						className='absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg'>
 						<ul
-							className="p-1.5"
+							className='p-1.5'
 							data-testid={`${ testId }-dropdown`}>
 							{items.map((item, index) => (
 								<li key={index}>
@@ -76,11 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 										)}
 										data-testid={`${ testId }-option-${ index }`}
 										onClick={() => handleSelect(item)}>
-										{
-											renderItem
-												? renderItem(item)
-												: item.label
-										}
+										{ item.label }
 									</a>
 								</li>
 							))}

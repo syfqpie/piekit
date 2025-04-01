@@ -13,7 +13,6 @@ export type DropdownProps = TestComponentMixin &
 		size?: 'xs' | 'sm' | 'md' | 'lg';
 		label?: string;
 		items?: DropdownItem[];
-		renderItem?: (item: DropdownItem) => React.ReactNode;
 		modelValue?: string;
 		setModelValue?: (value: string) => void;
 	}
