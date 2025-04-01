@@ -59,17 +59,20 @@ const Dropdown: React.FC<DropdownProps> = ({
 						}}
 						className='absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg'>
 						<ul
-							className='p-1.5'
+							className=''
 							data-testid={`${ testId }-dropdown`}>
 							{items.map((item, index) => (
-								<li key={index}>
+								<li
+									key={index}
+									className={'group'}>
 									<a
 										className={clsx(
-											'px-1.5 py-1 hover:bg-gray-300 cursor-pointer w-full flex',
+											'hover:bg-gray-300 cursor-pointer w-full flex',
 											{
-												'text-sm rounded-lg': size === 'xs' || size === 'sm',
-												'text-base rounded': size === 'md' || size === undefined,
-												'text-lg rounded-lg': size === 'lg',
+												'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
+												'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
+												'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
+												'px-6 py-3 text-lg group-first:rounded-t-xl group-last:rounded-b-xl': size === 'lg',
 												'bg-gray-200': item.value === selectedItem?.value,
 											},
 										)}
