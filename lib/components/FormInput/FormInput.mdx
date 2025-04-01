@@ -1,0 +1,81 @@
+import { Canvas, Meta, Story } from '@storybook/blocks'
+import FormInput from './FormInput'
+import * as FormInputStories from './FormInput.stories'
+
+<Meta of={FormInputStories} />
+
+# FormInput
+
+`FormInput` is a customizable input component that standardizes `input` behavior and styling while ensuring a consistent user experience.
+
+## Import
+
+```tsx
+import { FormInput } from 'piekit'
+```
+
+## Props
+
+### Label
+
+Default value: `undefined`\
+Type: `string`\
+Description: The `label` prop sets a text label above the input field.
+
+<Canvas of={FormInputStories.LabelOnly} />
+
+### Placeholder
+
+Default value: `undefined`\
+Type: `string`\
+Description: The `placeholder` prop sets a temporary hint inside the input field, displayed when it is empty.
+
+<Canvas of={FormInputStories.PlaceholderOnly} />
+
+### Disabled
+
+Default value: `false`\
+Type: `boolean`\
+Description: If `disabled` prop is set to `true`, the input will be disabled.
+
+<Canvas of={FormInputStories.Disabled} />
+
+### Error state
+
+Default value: `false`\
+Type: `boolean`\
+Description: If `hasError` prop is set to `true`, the input appearance will change to `error` variant.
+
+<Canvas of={FormInputStories.ErrorStateWithoutMessage} />
+
+### Error messages
+
+Default value: `[]`\
+Type: `string[]`\
+Description: If `errorMessages` prop is being set, error messages will be shown. `hasError` have to be set to `true`.
+
+<Canvas of={FormInputStories.ErrorStateWithMessage} />
+
+### Group class name
+
+Default value: `undefined`\
+Type: `string`\
+Description: The `groupClassName` prop allows you to apply additional styling to the container that wraps the input field and label.
+
+<Canvas of={FormInputStories.WithGroupClassName} />
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `FormInput`.
+
+<Canvas of={FormInputStories.WithTA} />
+
+Will be rendered as:
+
+```html
+<div data-testid="name-form-ta-form">
+    <label data-testid="name-form-ta-label">Name</label>
+    <input placeholder="Enter name" data-testid="name-form-ta-input">
+    <p data-testid="name-form-ta-error-msg-0">Field required</p>
+</div>
+```
