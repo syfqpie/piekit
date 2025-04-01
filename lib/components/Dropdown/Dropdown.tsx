@@ -75,10 +75,10 @@ const Dropdown: React.FC<DropdownProps> = ({
 										className={clsx(
 											'hover:bg-gray-300 cursor-pointer w-full flex',
 											{
-												'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
-												'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
-												'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
-												'px-6 py-3 text-lg group-first:rounded-t-xl group-last:rounded-b-xl': size === 'lg',
+												'px-2 py-1 text-xs group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
+												'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
+												'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
+												'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'lg',
 												'bg-gray-200': item.value === selectedItem?.value,
 											},
 										)}

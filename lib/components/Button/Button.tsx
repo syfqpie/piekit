@@ -24,10 +24,10 @@ const Button: React.FC<ButtonProps> = ({
 				'disabled:cursor-not-allowed disabled:opacity-30 border',
 				{
 					// size
-					'px-2.5 py-1.5 text-sm rounded-lg': size === 'xs',
-					'px-4 py-2 text-sm rounded-lg': size === 'sm',
-					'px-4.5 py-2.5 text-base rounded-lg': size === 'md' || size === undefined,
-					'px-6 py-3 text-lg rounded-xl': size === 'lg',
+					'px-2 py-1 text-xs rounded-lg': size === 'xs',
+					'px-2.5 py-1.5 text-sm rounded-lg': size === 'sm',
+					'px-4 py-2 text-sm rounded-lg': size === 'md' || size === undefined,
+					'px-4.5 py-2.5 text-base rounded-lg': size === 'lg',
 
 					// solid
 					'text-white': appearance === 'solid',
