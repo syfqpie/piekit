@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
 				{
 					// size
 					'px-2 py-1 text-xs rounded-lg': size === 'xs',
-					'px-2.5 py-1.5 text-sm rounded-lg': size === 'sm',
+					'px-2.5 py-1.5 text-base md:text-sm rounded-lg': size === 'sm',
 					'px-4 py-2 text-sm rounded-lg': size === 'md' || size === undefined,
 					'px-4.5 py-2.5 text-base rounded-lg': size === 'lg',
 
