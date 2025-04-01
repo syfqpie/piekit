@@ -1,0 +1,102 @@
+import { Canvas, Meta, Story } from '@storybook/blocks'
+import Dropdown from './Dropdown'
+import * as DropdownStories from './Dropdown.stories'
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+The `Dropdown` component is a menu that displays a list of options when triggered. 
+
+## Import
+
+```tsx
+import { Dropdown } from 'piekit'
+```
+
+## Props
+
+### size
+
+Default value: `md`\
+Type: `xs`, `sm`, `md`, `lg`\
+Description: The `size` prop controls the size of the dropdown button. It can be one of the following:
+- `xs`: An extra small button
+- `sm`: A smaller button, suitable for more compact UI layouts.
+- `md`: A medium button which is the default button size.
+- `lg`: A larger button for more prominent actions.
+
+<Canvas of={DropdownStories.Size} />
+
+### label
+
+Default value: `undefined`\
+Type: `string`\
+Description: Placeholder text for the dropdown button.
+
+### items
+
+Default value: `[]`\
+Type: `DropdownItem[]`\
+Description: An array of selectable options.
+
+### modelValue
+
+Default value: `undefined`\
+Type: `string`\
+Description: The currently selected value.
+
+### setModelValue
+
+Default Value: `undefined`\
+Type: `(value: string) => void`\
+Description: Function to update the selected value.
+
+## Usage
+
+### With model
+
+<Canvas of={DropdownStories.WithModelValue} />
+
+### With onClick
+
+<Canvas of={DropdownStories.WithOnClick} />
+
+## DropdownItem Structure
+
+Each item in the items array should follow this structure:
+
+```ts
+interface DropdownItem {
+    label: string;
+    value: string;
+    onClick?: (value: string) => void;
+}
+```
+
+## Test automation tag
+
+To assist with automated testing, add a `testId` attribute to the `Dropdown`.
+
+<Canvas of={DropdownStories.WithTA} />
+
+Will be rendered as:
+
+```html
+<div data-testid="dropdown-ta">
+    <button data-testid="dropdown-ta-toggle">
+        <span data-testid="dropdown-ta-label">...</span>
+        <svg></svg>
+    </button>
+    <div>
+        <ul data-testid="dropdown-ta-dropdown">
+            <li>
+                <a data-testid="dropdown-ta-option-0">...</a>
+            </li>
+            <li>
+                <a data-testid="dropdown-ta-option-1">...</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
