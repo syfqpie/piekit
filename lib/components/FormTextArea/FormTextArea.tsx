@@ -31,7 +31,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = ({
 				className={clsx(
 					'block w-full rounded-lg px-2.5 py-1.5 border',
 					'bg-white shadow-sm text-base md:text-sm',
-					'disabled:cursor-not-allowed disabled:opacity-60 outline-none',
+					'disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-60 outline-none',
 					'ring-0 focus:ring-2',
 					{
 						'focus:ring-gray-500/30 text-gray-900 placeholder-gray-400 border-gray-900 caret-gray-500': !hasError,
