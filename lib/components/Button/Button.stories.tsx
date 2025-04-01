@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
 		children: 'Click me',
 		disabled: false,
 		variant: 'primary',
-		size: 'xs',
+		size: 'md',
 	},
 	argTypes: {
 		alignment: {
