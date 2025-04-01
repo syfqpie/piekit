@@ -1,9 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
 import { motion, AnimatePresence } from 'motion/react'
+import { ChevronDown } from '@carbon/icons-react'
 
 import { Button } from '../Button'
 import { DropdownProps, DropdownItem } from '../../types/dropdown'
+import { useOuterClick } from '@/lib/main'
 
 const Dropdown: React.FC<DropdownProps> = ({
 	className,
@@ -17,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	...props
 }) => {
 	const [isOpen, setIsOpen] = React.useState(false)
-	const dropdownRef = React.useRef<HTMLDivElement>(null)
+	const dropdownRef = useOuterClick<HTMLDivElement>(() => isOpen && setIsOpen(false))
 	const selectedItem = items.find(item => item.value === modelValue)
 
 	const toggleDropdown = () => setIsOpen((prev) => !prev)
@@ -40,6 +42,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 				<span>
 					{selectedItem ? selectedItem.label : label}
 				</span>
+
+				<ChevronDown
+					className={clsx('transition', {
+						'rotate-180': isOpen,
+					})} />
 			</Button>
 
 			<AnimatePresence>
