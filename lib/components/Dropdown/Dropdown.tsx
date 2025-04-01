@@ -38,7 +38,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 				size={size}
 				onClick={toggleDropdown}
 				testId={`${ testId }-toggle`}>
-				<span>
+				<span data-testid={`${ testId }-label`}>
 					{selectedItem ? selectedItem.label : label}
 				</span>
 
