@@ -11,6 +11,7 @@ const meta: Meta<typeof FormSelect> = {
 			{ label: 'Option 2', value: 'option2' },
 			{ label: 'Option 3', value: 'option3' },
 		],
+		testId: 'ta-select',
 	},
 	argTypes: {
 		disabled: {
@@ -80,7 +81,7 @@ const meta: Meta<typeof FormSelect> = {
 		},
 		options: {
 			control: 'object',
-			description: 'An array of selectable options.',
+			description: 'An array of selectable options. See the **SelectOption** type below',
 			table: {
 				category: 'Props',
 				defaultValue: {
@@ -203,15 +204,5 @@ export const WithGroupClassName: Story = {
 		groupClassName: 'bg-blue-400/30 p-4 rounded-md',
 		label: 'Fruit',
 		placeholder: 'Select fruit',
-	},
-}
-
-export const WithTA: Story = {
-	args: {
-		testId: 'select-form-ta',
-		label: 'Fruit',
-		placeholder: 'Select fruit',
-		hasError: true,
-		errorMessages: ['Field required'],
 	},
 }

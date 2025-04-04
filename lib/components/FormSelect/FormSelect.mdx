@@ -58,29 +58,40 @@ The `groupClassName` prop allows you to apply additional styling to the containe
 
 To assist with automated testing, add a `testId` attribute to the `FormSelect`.
 
-<Canvas of={FormSelectStories.WithTA} />
+<Canvas of={FormSelectStories.Basic} />
 
 Will be rendered as:
 
 ```html
-<div data-testid="select-form-ta-form">
-    <label data-testid="select-form-ta-label">Fruit</label>
-    <button data-testid="select-form-ta-toggler">
-        <span data-testid="select-form-ta-selected-label">
+<div data-testid="ta-select-form">
+    <label data-testid="ta-select-label">Fruit</label>
+    <button data-testid="ta-select-toggler">
+        <span data-testid="ta-select-selected-label">
             Select fruit
         </span>
     </button>
     <div>
-        <ul data-testid="select-form-ta-options-container">
+        <ul data-testid="ta-select-options-container">
             <li>
-                <button data-testid="select-form-ta-option-0">...</button>
+                <button data-testid="ta-select-option-0">...</button>
             </li>
         </ul>
     </div>
-    <p data-testid="select-form-ta-error-msg-0">Field required</p>
+    <p data-testid="ta-select-error-msg-0">Field required</p>
 </div>
 ```
 
 ## API
 
 <ArgTypes />
+
+## SelectOption
+
+Each item in the items array should follow this structure:
+
+```ts
+interface SelectOption {
+    label: string;
+    value: string;
+}
+```
