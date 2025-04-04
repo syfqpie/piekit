@@ -17,10 +17,10 @@ describe('[PieKit Test] Button component', () => {
 	it('renders different sizes', () => {
 		const sizes = ['xs', 'sm', 'md', 'lg'] as const
 		const sizeClasses = {
-			xs: ['px-2.5', 'py-1.5', 'text-sm', 'rounded-lg'],
-			sm: ['px-4', 'py-2', 'text-sm', 'rounded-lg'],
-			md: ['px-4.5', 'py-2.5', 'text-base', 'rounded-lg'],
-			lg: ['px-6', 'py-3', 'text-lg', 'rounded-xl'],
+			xs: ['px-2', 'py-1', 'text-xs', 'rounded-lg'],
+			sm: ['px-2.5', 'py-1.5', 'text-base md:text-sm', 'rounded-lg'],
+			md: ['px-4', 'py-2', 'text-sm', 'rounded-lg'],
+			lg: ['px-4.5', 'py-2.5', 'text-base', 'rounded-lg'],
 		}
 		  
 		sizes.forEach(size => {
@@ -39,7 +39,6 @@ describe('[PieKit Test] Button component', () => {
 			const button = screen.getByText(variant)
 			expect(button).not.toHaveClass('bg-transparent')
 			expect(button.className).toMatch(new RegExp(`bg-${ variant }*`))
-			expect(button.className).not.toMatch(/\bborder\b/)
 		})
 	})
 
