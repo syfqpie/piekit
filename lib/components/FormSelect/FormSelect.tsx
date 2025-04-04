@@ -7,7 +7,9 @@ import { FormSelectProps, SelectOption } from '../../types/formselect'
 import { useOuterClick } from '@/lib/main'
 
 /**
- * TODO: add multiple selection
+ * TODO:
+ * - add multiple selection
+ * - add clear
  */
 const FormSelect: React.FC<FormSelectProps> = ({
 	className,
@@ -36,9 +38,14 @@ const FormSelect: React.FC<FormSelectProps> = ({
 	}
 
 	const selectedLabel = React.useMemo(() => {
-		const selectedOption = options.find(opt => opt.value === value)
-		return selectedOption ? selectedOption.label : placeholder
-	}, [options, placeholder, value])
+		const selectedInput= options.find(opt => opt.value === value)
+		const selectedOption = options.find(opt => opt.value === selectedValue)
+		return selectedInput
+			? selectedInput.label
+			: selectedOption
+				? selectedOption.label
+				: placeholder
+	}, [options, placeholder, value, selectedValue])
 
 	return (
 		<div
@@ -88,7 +95,8 @@ const FormSelect: React.FC<FormSelectProps> = ({
 								'text-gray-900': selectedValue && !hasError,
 								'text-red-500': selectedValue && hasError,
 							},
-						)}>
+						)}
+						data-testid={`${ testId }-selected-label`}>
 						{ selectedLabel }
 					</span>
 
