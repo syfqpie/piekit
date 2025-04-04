@@ -14,28 +14,134 @@ const meta: Meta<typeof FormSelect> = {
 	},
 	argTypes: {
 		disabled: {
-			name: 'Disabled',
 			control: 'boolean',
+			description: 'If set to `true`, the select will have disabled appearance.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'false',
+				},
+				type: {
+					summary: 'boolean',
+				},
+			},
 		},
 		errorMessages: {
-			name: 'Error messages',
 			control: 'object',
+			description: 'Array of error messages, shown if `hasError` is set to true.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: '[]',
+				},
+				type: {
+					summary: 'string[]',
+				},
+			},
+		},
+		groupClassName: {
+			control: 'text',
+			description: 'Allows you to apply additional styling to the container that wraps the input field and label.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
 		},
 		hasError: {
-			name: 'Has error',
 			control: 'boolean',
+			description: 'If set to `true`, the select appearance will change to `error` variant.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'false',
+				},
+				type: {
+					summary: 'boolean',
+				},
+			},
 		},
 		label: {
-			name: 'Label',
 			control: 'text',
+			description: 'Sets a text label above the select field.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
+		},
+		options: {
+			control: 'object',
+			description: 'An array of selectable options.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: '[]',
+				},
+				type: {
+					summary: 'SelectOption[]',
+				},
+			},
 		},
 		placeholder: {
-			name: 'Placeholder',
 			control: 'text',
+			description: 'Sets a temporary hint inside the select field, displayed when it is empty.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
 		},
 		testId: {
-			name: 'Test automation tag',
 			control: 'text',
+			description: 'Tag to be used for testing purposes.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
+		},
+		value: {
+			control: 'object',
+			description: 'The input control\'s value.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string | readonly string[] | number | undefined',
+				},
+			},
+		},
+		onChange: {
+			action: 'changed',
+			description: 'Callback fired when the value changes.',
+			table: {
+				category: 'Callbacks',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: '(ev: string) => void',
+				},
+			},
 		},
 	},
 }
@@ -67,14 +173,9 @@ export const BasicUsage: Story = {
 	},
 }
 
-export const LabelOnly: Story = {
+export const Basic: Story = {
 	args: {
 		label: 'Fruit',
-	},
-}
-
-export const PlaceholderOnly: Story = {
-	args: {
 		placeholder: 'Select fruit',
 	},
 }
@@ -84,14 +185,6 @@ export const Disabled: Story = {
 		label: 'Fruit',
 		placeholder: 'Select fruit',
 		disabled: true,
-	},
-}
-
-export const ErrorStateWithoutMessage: Story = {
-	args: {
-		label: 'Fruit',
-		placeholder: 'Select fruit',
-		hasError: true,
 	},
 }
 
