@@ -46,7 +46,8 @@
     "bump:patch": "pnpm version patch -m \"build: %s\"",
     "bump:minor": "pnpm version minor -m \"build: %s\"",
     "bump:major": "pnpm version major -m \"build: %s\"",
-    "storybook": "storybook dev -p 6006",
+    "storydev": "storybook dev -p 6006",
+    "storydocs": "storybook dev --docs -p 6007",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -62,9 +63,11 @@
     "@storybook/addon-interactions": "^8.6.4",
     "@storybook/addon-onboarding": "^8.6.4",
     "@storybook/blocks": "^8.6.4",
+    "@storybook/manager-api": "^8.6.12",
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
+    "@storybook/theming": "^8.6.12",
     "@tailwindcss/vite": "^4.0.6",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
