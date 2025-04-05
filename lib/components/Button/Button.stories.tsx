@@ -6,46 +6,131 @@ const meta: Meta<typeof Button> = {
 	component: Button,
 	args: {
 		children: 'Click me',
-		disabled: false,
 		variant: 'primary',
-		size: 'md',
+		testId: 'ta-btn',
+		onClick: () => { console.log('Button clicked')},
 	},
 	argTypes: {
 		alignment: {
-			name: 'Alignment',
-			description: 'Set button alignment',
 			control: 'radio',
+			description: 'Set button alignment',
 			options: ['start', 'center', 'end'],
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'center',
+				},
+				type: {
+					summary: 'start | center | end',
+				},
+			},
 		},
 		appearance: {
-			name: 'Appearance',
 			description: 'Set button appearance',
-			control: 'radio', options: ['solid', 'outline'],
+			control: 'radio',
+			options: ['solid', 'outline'],
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'solid',
+				},
+				type: {
+					summary: 'solid | outline',
+				},
+			},
+		},
+		children: {
+			description: 'Children content',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'null',
+				},
+				type: {
+					summary: 'ReactNode',
+				},
+			},
+		},
+		disabled: {
+			description: 'Set button disabled state',
+			control: 'boolean',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'false',
+				},
+				type: {
+					summary: 'boolean',
+				},
+			},
 		},
 		full: {
-			name: 'Full',
 			description: 'Set button to be full width or follow content width',
 			control: 'boolean',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'false',
+				},
+				type: {
+					summary: 'boolean',
+				},
+			},
 		},
 		size: {
 			name: 'Size',
 			description: 'Set button size',
-			control: 'radio', options: ['xs', 'sm', 'md', 'lg'],
-		},
-		variant: {
-			name: 'Variant',
-			description: 'Set button color variant',
-			control: 'radio', options: ['primary', 'success', 'error'],
-		},
-		disabled: {
-			name: 'Disabled',
-			description: 'Set button disabled state',
-			control: 'boolean',
+			control: 'radio',
+			options: ['xs', 'sm', 'md', 'lg'],
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'md',
+				},
+				type: {
+					summary: 'xs | sm | md | lg',
+				},
+			},
 		},
 		testId: {
-			name: 'Test automation tag',
 			description: 'Test automation ID',
 			control: 'text',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
+		},
+		variant: {
+			description: 'Set button color variant',
+			control: 'radio',
+			options: ['primary', 'success', 'error'],
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'primary',
+				},
+				type: {
+					summary: 'primary | ssuccess | error',
+				},
+			},
+		},
+		onClick: {
+			action: 'clicked',
+			description: 'Callback fired when the button clicked.',
+			table: {
+				category: 'Callbacks',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: '(event?: React.MouseEventHandler<HTMLButtonElement> | undefined) => void',
+				},
+			},
 		},
 	},
 }
@@ -53,6 +138,14 @@ const meta: Meta<typeof Button> = {
 export default meta
 
 type Story = StoryObj<typeof Button>
+
+export const Basic: Story = {
+	render: (args) => {
+		return (
+			<Button {...args} variant='primary'>Click me</Button>
+		)
+	},
+}
 
 export const Variant: Story = {
 	render: (args) => {
@@ -126,14 +219,6 @@ export const Alignment: Story = {
 				<Button {...args} alignment='center'>Center</Button>
 				<Button {...args} alignment='end'>End</Button>
 			</div>
-		)
-	},
-}
-
-export const WithTA: Story = {
-	render: (args) => {
-		return (
-			<Button {...args} variant='primary' testId='button-ta'>Test button</Button>
 		)
 	},
 }

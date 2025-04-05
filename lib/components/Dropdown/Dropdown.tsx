@@ -13,18 +13,15 @@ const Dropdown: React.FC<DropdownProps> = ({
 	size = 'md',
 	testId,
 	items = [],
-	modelValue,
-	setModelValue,
+	onChange,
 	...props
 }) => {
 	const [isOpen, setIsOpen] = React.useState(false)
 	const dropdownRef = useOuterClick<HTMLDivElement>(() => isOpen && setIsOpen(false))
-	const selectedItem = items.find(item => item.value === modelValue)
 
 	const toggleDropdown = () => setIsOpen((prev) => !prev)
 	const handleSelect = (item: DropdownItem) => {
-		if (setModelValue) setModelValue(item.value)
-		if (item.onClick) item.onClick(item.value)
+		onChange?.(item.value)
 		setIsOpen(false)
 	}
 
@@ -39,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 				onClick={toggleDropdown}
 				testId={`${ testId }-toggle`}>
 				<span data-testid={`${ testId }-label`}>
-					{selectedItem ? selectedItem.label : label}
+					{label}
 				</span>
 
 				<ChevronDown
@@ -58,7 +55,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 							duration: 0.15,
 						}}
 						className={clsx(
-							'absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg',
+							'absolute left-0 mt-2 w-48 z-[5] bg-white border border-gray-200 shadow-lg',
 							{
 								'rounded-lg': size === 'xs' || size === 'sm' || size === 'md' || size === undefined,
 								'rounded-xl': size === 'lg',
@@ -73,13 +70,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 									className={'group'}>
 									<a
 										className={clsx(
-											'hover:bg-gray-300 cursor-pointer w-full flex',
+											'hover:bg-primary-900 hover:text-white cursor-pointer w-full flex',
 											{
 												'px-2 py-1 text-xs group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
 												'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
 												'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
 												'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'lg',
-												'bg-gray-200': item.value === selectedItem?.value,
 											},
 										)}
 										data-testid={`${ testId }-option-${ index }`}
