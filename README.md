@@ -67,12 +67,6 @@ To streamline the creation of new components and sandboxes, use the provided gen
   pnpm run generate component <ComponentName>
   ```
 
-- **Create a new sandbox:**
-
-  ```bash
-  pnpm run generate sandbox <ComponentName>
-  ```
-
 ## Unit Testing
 
 Run unit tests using [Vitest](https://vitest.dev/):

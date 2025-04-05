@@ -27,3 +27,5 @@ dist-ssr
 
 # Etc
 _misc
+*storybook.log
+storybook-static
