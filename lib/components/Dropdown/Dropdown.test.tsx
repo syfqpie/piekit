@@ -1,16 +1,12 @@
 import { render, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import Dropdown from './Dropdown'
 
 const items = [
 	{ label: 'Option 1', value: 'option1' },
-	{ label: 'Option 2', value: 'option2', onClick: vi.fn() },
+	{ label: 'Option 2', value: 'option2' },
 	{ label: 'Option 3', value: 'option3' },
 ]
-
-beforeEach(() => {
-	items.forEach(item => item.onClick?.mockClear())
-})
 
 describe('[PieKit Test] Dropdown component', () => {
 	it('renders with test tag', () => {
@@ -32,27 +28,6 @@ describe('[PieKit Test] Dropdown component', () => {
 		expect(screen.getByText('Option 3')).toBeInTheDocument()
 	})
 
-	it('selects an item and updates model value', () => {
-		const setModelValue = vi.fn()
-		render(<Dropdown label='Select an option' items={items} modelValue='' setModelValue={setModelValue} />)
-
-		const button = screen.getByText('Select an option')
-		fireEvent.click(button)
-		const option = screen.getByText('Option 1')
-		fireEvent.click(option)
-		expect(setModelValue).toHaveBeenCalledWith('option1')
-	})
-
-	it('calls item-specific onClick callback if provided', () => {
-		render(<Dropdown label='Select an option' items={items} />)
-
-		const button = screen.getByText('Select an option')
-		fireEvent.click(button)
-		const option = screen.getByText('Option 2')
-		fireEvent.click(option)
-		expect(items[1].onClick).toHaveBeenCalledWith('option2')
-	})
-
 	it('closes dropdown after selection', async () => {
 		const testId = 'test'
 		render(<Dropdown label='Select an option' items={items} testId={testId} />)
@@ -60,5 +35,17 @@ describe('[PieKit Test] Dropdown component', () => {
 		fireEvent.click(button)
 		fireEvent.click(screen.getByTestId(`${ testId }-option-0`))
 		await waitForElementToBeRemoved(() => screen.getByTestId(`${ testId }-option-0`))
+	})
+
+	it('calls onChanged', () => {
+		const mockOnChange = vi.fn()
+		render(<Dropdown label='Select an option' items={items} onChange={(ev) => mockOnChange(ev)} />)
+
+		const button = screen.getByText('Select an option')
+		fireEvent.click(button)
+		const option = screen.getByText('Option 2')
+		fireEvent.click(option)
+		expect(mockOnChange).toHaveBeenCalled()
+		expect(mockOnChange).toHaveBeenCalledWith('option2')
 	})
 })
