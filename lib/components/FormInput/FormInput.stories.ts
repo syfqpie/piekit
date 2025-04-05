@@ -112,16 +112,12 @@ export const Basic: Story = { }
 
 export const Disabled: Story = {
 	args: {
-		label: 'Name',
-		placeholder: 'Enter name',
 		disabled: true,
 	},
 }
 
 export const ErrorStateWithMessage: Story = {
 	args: {
-		label: 'Name',
-		placeholder: 'Enter name',
 		hasError: true,
 		errorMessages: ['Field required'],
 	},
@@ -131,7 +127,5 @@ export const WithGroupClassName: Story = {
 	args: {
 		className: '!bg-gray-600',
 		groupClassName: 'bg-blue-400/30 p-4 rounded-md',
-		label: 'Username',
-		placeholder: 'Enter username',
 	},
 }
