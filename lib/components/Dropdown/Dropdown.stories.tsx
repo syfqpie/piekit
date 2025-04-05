@@ -15,28 +15,73 @@ const meta: Meta<typeof Dropdown> = {
 	},
 	argTypes: {
 		label: {
-			name: 'Label',
 			control: 'text',
+			description: 'Placeholder text for the dropdown button.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
 		},
 		items: {
-			name: 'Items',
 			control: 'object',
+			description: 'An array of selectable options.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: '[]',
+				},
+				type: {
+					summary: 'DropdownItem[]',
+				},
+			},
 		},
 		modelValue: {
-			name: 'Model value',
-			control: 'text',
+			control: 'object',
+			description: 'The control\'s value.',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string | readonly string[] | number | undefined',
+				},
+			},
 		},
 		setModelValue: {
 			action: 'setModelValue',
 		},
 		size: {
-			name: 'Size',
+			description: 'Set button size',
 			control: 'radio',
 			options: ['xs', 'sm', 'md', 'lg'],
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'md',
+				},
+				type: {
+					summary: 'xs | sm | md | lg',
+				},
+			},
 		},
 		testId: {
-			name: 'Test automation tag',
+			description: 'Test automation ID',
 			control: 'text',
+			table: {
+				category: 'Props',
+				defaultValue: {
+					summary: 'undefined',
+				},
+				type: {
+					summary: 'string',
+				},
+			},
 		},
 	},
 }
