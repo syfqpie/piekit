@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import Dropdown from './Dropdown'
 
@@ -34,7 +34,7 @@ describe('[PieKit Test] Dropdown component', () => {
 		const button = screen.getByTestId(`${ testId }-toggle`)
 		fireEvent.click(button)
 		fireEvent.click(screen.getByTestId(`${ testId }-option-0`))
-		await waitForElementToBeRemoved(() => screen.getByTestId(`${ testId }-option-0`))
+		expect(screen.queryByTestId(`${ testId }-option-0`)).not.toBeInTheDocument()
 	})
 
 	it('calls onChanged', () => {

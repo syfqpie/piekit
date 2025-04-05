@@ -51,9 +51,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@carbon/icons-react": "^11.55.0",
+    "@formkit/auto-animate": "^0.8.2",
     "clsx": "^2.1.1",
-    "motion": "^12.4.10"
+    "lucide-react": "^0.487.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
