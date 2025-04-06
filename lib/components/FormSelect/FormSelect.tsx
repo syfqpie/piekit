@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { motion, AnimatePresence } from 'motion/react'
-import { ChevronDown } from '@carbon/icons-react'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { ChevronDown } from 'lucide-react'
 
 import { FormSelectProps, SelectOption } from '../../types/formselect'
 import { useOuterClick } from '@/lib/main'
@@ -28,6 +28,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
 	const [isOpen, setIsOpen] = React.useState(false)
 	const [selectedValue, setSelectedValue] = React.useState(value)
 	const ref = useOuterClick<HTMLDivElement>(() => isOpen && setIsOpen(false))
+	const [parent] = useAutoAnimate({ duration: 150 })
 
 	const toggleOptions = () => setIsOpen((prev) => !prev)
 
@@ -101,51 +102,42 @@ const FormSelect: React.FC<FormSelectProps> = ({
 					</span>
 
 					<ChevronDown
-						className={clsx('transition flex-none', {
+						className={clsx('transition flex-none w-4 h-4', {
 							'rotate-180': isOpen,
 						})} />
 				</span>
 			</button>
 
-			<AnimatePresence>
+			<div ref={parent}>
 				{isOpen && (
-					<motion.div
-						initial={{ opacity: 0, y: -5 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -5 }}
-						transition={{
-							duration: 0.15,
-						}}
+					<ul
 						className={clsx(
 							'absolute mt-2 w-full bg-white border border-gray-200',
 							'shadow-lg rounded-lg z-[5] max-h-60 overflow-y-scroll',
-						)}>
-						<ul
-							className=''
-							data-testid={`${ testId }-options-container`}>
-							{options.map((opt, index) => (
-								<li
-									key={index}
-									className={'group'}>
-									<button
-										className={clsx(
-											'cursor-pointer w-full flex',
-											'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg',
-											{
-												'bg-gray-900 text-white': selectedValue === opt.value,
-												'hover:bg-gray-300': selectedValue !== opt.value,
-											},
-										)}
-										data-testid={`${ testId }-option-${ index }`}
-										onClick={() => handleSelect(opt)}>
-										{ opt.label }
-									</button>
-								</li>
-							))}
-						</ul>
-					</motion.div>
+						)}
+						data-testid={`${ testId }-options-container`}>
+						{options.map((opt, index) => (
+							<li
+								key={index}
+								className={'group'}>
+								<button
+									className={clsx(
+										'cursor-pointer w-full flex',
+										'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg',
+										{
+											'bg-gray-900 text-white': selectedValue === opt.value,
+											'hover:bg-gray-300': selectedValue !== opt.value,
+										},
+									)}
+									data-testid={`${ testId }-option-${ index }`}
+									onClick={() => handleSelect(opt)}>
+									{ opt.label }
+								</button>
+							</li>
+						))}
+					</ul>
 				)}
-			</AnimatePresence>
+			</div>
 
 			{
 				hasError && errorMessages.length > 0
