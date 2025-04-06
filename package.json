@@ -37,8 +37,10 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "dev": "vite",
+    "dev": "storybook dev -p 6006",
+    "dev:docs": "storybook dev --docs -p 6007",
     "build": "tsc -b && vite build",
+    "build:docs": "storybook build --docs",
     "test": "vitest",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -46,8 +48,6 @@
     "bump:patch": "pnpm version patch -m \"build: %s\"",
     "bump:minor": "pnpm version minor -m \"build: %s\"",
     "bump:major": "pnpm version major -m \"build: %s\"",
-    "storydev": "storybook dev -p 6006",
-    "storydocs": "storybook dev --docs -p 6007",
     "build-storybook": "storybook build"
   },
   "dependencies": {
