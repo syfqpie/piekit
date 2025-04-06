@@ -54,12 +54,18 @@ pnpm install
 Start the local development server:
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
-## Generating Components & Sandboxes
+Start the local documentation development server:
 
-To streamline the creation of new components and sandboxes, use the provided generate script:
+```bash
+pnpm dev:docs
+```
+
+## Generating Components
+
+To streamline the creation of new component files, use the provided generate script:
 
 - **Create a new component:**
 
@@ -83,6 +89,16 @@ Run unit tests using [Vitest](https://vitest.dev/):
   pnpm test run
   ```
 
-## Documentation
+## Building
 
-The documentation for piekit can be found in the `/docs/README.md` file. To view it, simply open the file in the project directory.
+To build the component library
+
+  ```bash
+  pnpm build
+  ```
+
+To build the documentation
+
+  ```bash
+  pnpm build:docs
+  ```

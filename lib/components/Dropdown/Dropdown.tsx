@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { motion, AnimatePresence } from 'motion/react'
-import { ChevronDown } from '@carbon/icons-react'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { ChevronDown } from 'lucide-react'
 
 import { Button } from '../Button'
 import { DropdownProps, DropdownItem } from '../../types/dropdown'
@@ -18,6 +18,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
 	const [isOpen, setIsOpen] = React.useState(false)
 	const dropdownRef = useOuterClick<HTMLDivElement>(() => isOpen && setIsOpen(false))
+	const [parent] = useAutoAnimate({ duration: 150 })
 
 	const toggleDropdown = () => setIsOpen((prev) => !prev)
 	const handleSelect = (item: DropdownItem) => {
@@ -40,54 +41,45 @@ const Dropdown: React.FC<DropdownProps> = ({
 				</span>
 
 				<ChevronDown
-					className={clsx('transition', {
+					className={clsx('transition w-4 h-4', {
 						'rotate-180': isOpen,
 					})} />
 			</Button>
 
-			<AnimatePresence>
+			<div ref={parent}>
 				{isOpen && (
-					<motion.div
-						initial={{ opacity: 0, y: -5 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -5 }}
-						transition={{
-							duration: 0.15,
-						}}
+					<ul
 						className={clsx(
 							'absolute left-0 mt-2 w-48 z-[5] bg-white border border-gray-200 shadow-lg',
 							{
 								'rounded-lg': size === 'xs' || size === 'sm' || size === 'md' || size === undefined,
 								'rounded-xl': size === 'lg',
 							},
-						)}>
-						<ul
-							className=''
-							data-testid={`${ testId }-dropdown`}>
-							{items.map((item, index) => (
-								<li
-									key={index}
-									className={'group'}>
-									<a
-										className={clsx(
-											'hover:bg-primary-900 hover:text-white cursor-pointer w-full flex',
-											{
-												'px-2 py-1 text-xs group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
-												'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
-												'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
-												'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'lg',
-											},
-										)}
-										data-testid={`${ testId }-option-${ index }`}
-										onClick={() => handleSelect(item)}>
-										{ item.label }
-									</a>
-								</li>
-							))}
-						</ul>
-					</motion.div>
+						)}
+						data-testid={`${ testId }-dropdown`}>
+						{items.map((item, index) => (
+							<li
+								key={index}
+								className={'group'}>
+								<a
+									className={clsx(
+										'hover:bg-primary-900 hover:text-white cursor-pointer w-full flex',
+										{
+											'px-2 py-1 text-xs group-first:rounded-t-lg group-last:rounded-b-lg': size === 'xs',
+											'px-2.5 py-1.5 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'sm',
+											'px-4 py-2 text-sm group-first:rounded-t-lg group-last:rounded-b-lg': size === 'md' || size === undefined,
+											'px-4.5 py-2.5 text-base group-first:rounded-t-lg group-last:rounded-b-lg': size === 'lg',
+										},
+									)}
+									data-testid={`${ testId }-option-${ index }`}
+									onClick={() => handleSelect(item)}>
+									{ item.label }
+								</a>
+							</li>
+						))}
+					</ul>
 				)}
-			</AnimatePresence>
+			</div>
 		</div>
 	)
 }
